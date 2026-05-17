@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment — Creative Tech Studio</title>
+  <link rel="stylesheet" href="css/main.css"/>
+  <link rel="stylesheet" href="css/auth.css"/>
+  <!-- Khalti SDK -->
+  <script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.uat.js"></script>
+  <style>
+    .pay-page { min-height:100vh; background:var(--bg); padding:100px 5% 60px; }
+    .pay-inner { max-width:1000px; margin:0 auto; display:grid; grid-template-columns:1fr 380px; gap:32px; }
+    @media(max-width:768px){ .pay-inner{grid-template-columns:1fr;} }
+    .pay-left h1 { font-family:var(--font-head); font-size:48px; margin-bottom:8px; }
+    .pay-left p { color:var(--text2); font-size:14px; margin-bottom:32px; }
+    .pay-methods { display:flex; flex-direction:column; gap:12px; margin-bottom:28px; }
+    .pay-method {
+      background:var(--bg2); border:2px solid var(--border);
+      border-radius:var(--radius); padding:20px 24px;
+      display:flex; align-items:center; gap:16px;
+      cursor:pointer; transition:var(--transition);
+    }
+    .pay-method:hover { border-color:rgba(255,85,0,0.4); }
+    .pay-method.selected { border-color:var(--accent); background:rgba(255,85,0,0.05); }
+    .pay-method-logo {
+      width:52px; height:52px; border-radius:12px;
+      display:grid; place-items:center;
+      font-family:var(--font-ui); font-weight:900; font-size:18px;
+      flex-shrink:0;
+    }
+    .pay-method-info h3 { font-family:var(--font-ui); font-size:15px; font-weight:800; }
+    .pay-method-info p { font-size:12px; color:var(--text3); margin-top:2px; }
+    .pay-method-radio {
+      margin-left:auto; width:20px; height:20px;
+      border:2px solid var(--border); border-radius:50%;
+      display:grid; place-items:center; transition:var(--transition);
+    }
+    .pay-method.selected .pay-method-radio { border-color:var(--accent); }
+    .pay-method.selected .pay-method-radio::after { content:''; width:10px; height:10px; background:var(--accent); border-radius:50%; }
+
+    /* Order Summary */
+    .order-summary {
+      background:var(--bg2); border:1px solid var(--border);
+      border-radius:var(--radius-lg); padding:28px;
+      position:sticky; top:90px; height:fit-content;
+    }
+    .order-summary h3 { font-family:var(--font-ui); font-size:16px; font-weight:800; margin-bottom:20px; }
+    .order-item { display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid var(--border); }
+    .order-item:last-of-type { border-bottom:none; }
+    .order-item-name { font-size:13px; color:var(--text2); }
+    .order-item-price { font-family:var(--font-ui); font-weight:700; font-size:14px; }
+    .order-total { display:flex; justify-content:space-between; align-items:center; padding:16px 0 0; margin-top:8px; border-top:1px solid var(--border); }
+    .order-total span:first-child { font-family:var(--font-ui); font-weight:800; font-size:15px; }
+    .order-total .total-price { font-family:var(--font-head); font-size:32px; color:var(--accent); }
+    .secure-badge { display:flex; align-items:center; gap:8px; font-size:11px; color:var(--text3); margin-top:16px; font-family:var(--font-ui); background:var(--bg3); padding:10px 12px; border-radius:8px; }
+
+    /* Payment Forms */
+    .payment-form-section { margin-top:24px; display:none; }
+    .payment-form-section.active { display:block; }
+    .pay-note { background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.2); border-radius:8px; padding:12px 16px; font-size:12px; color:var(--accent2); margin-bottom:20px; font-family:var(--font-ui); line-height:1.6; }
+    .btn-pay { width:100%; padding:16px; background:var(--accent); color:#fff; border:none; border-radius:10px; font-family:var(--font-ui); font-size:15px; font-weight:800; letter-spacing:0.05em; cursor:pointer; transition:var(--transition); display:flex; align-items:center; justify-content:center; gap:8px; }
+    .btn-pay:hover { background:#ff6b1a; transform:translateY(-1px); box-shadow:0 8px 28px rgba(255,85,0,0.4); }
+    .btn-pay.green { background:#60B246; }
+    .btn-pay.green:hover { background:#4a9e35; }
+    .btn-pay.purple { background:#5C2D91; }
+    .btn-pay.purple:hover { background:#4a2275; }
+    .btn-pay.blue { background:#003087; }
+    .btn-pay.blue:hover { background:#002060; }
+  </style>
+</head>
+<body>
+<div class="noise"></div>
+<div class="toast-container" id="toastContainer"></div>
+
+<nav id="navbar" class="scrolled">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">▶</div>
+      <span class="logo-text">Creative<em>Tech</em>Studio</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">← Back</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="pay-page">
+  <div class="pay-inner">
+
+    <!-- LEFT: Payment Methods -->
+    <div class="pay-left">
+      <h1>CHECKOUT</h1>
+      <p>Tala ko payment method maa bata choose garnuhos</p>
+
+      <div class="pay-methods">
+
+        <!-- eSewa -->
+        <div class="pay-method" id="pm-esewa" onclick="selectMethod('esewa')">
+          <div class="pay-method-logo" style="background:#60B246;color:#fff;">e</div>
+          <div class="pay-method-info">
+            <h3 style="color:#60B246;">eSewa</h3>
+            <p>Nepal ko #1 digital wallet — Instant payment</p>
+          </div>
+          <div class="pay-method-radio"></div>
+        </div>
+
+        <!-- Khalti -->
+        <div class="pay-method" id="pm-khalti" onclick="selectMethod('khalti')">
+          <div class="pay-method-logo" style="background:#5C2D91;color:#fff;">K</div>
+          <div class="pay-method-info">
+            <h3 style="color:#5C2D91;">Khalti</h3>
+            <p>Fast & secure digital payment wallet</p>
+          </div>
+          <div class="pay-method-radio"></div>
+        </div>
+
+        <!-- Connect IPS -->
+        <div class="pay-method" id="pm-cips" onclick="selectMethod('cips')">
+          <div class="pay-method-logo" style="background:#003087;color:#fff;">C</div>
+          <div class="pay-method-info">
+            <h3 style="color:#003087;">Connect IPS</h3>
+            <p>Nepal Clearing House — Direct bank transfer</p>
+          </div>
+          <div class="pay-method-radio"></div>
+        </div>
+      </div>
+
+      <!-- eSewa Form -->
+      <div class="payment-form-section" id="form-esewa">
+        <div class="pay-note">⚠️ eSewa integration: <code>ESEWA_MERCHANT_CODE</code> lai tapaiko eSewa merchant code le replace garnuhos. Live URL: <code>https://esewa.com.np/epay/main</code></div>
+        <!-- eSewa hidden form — POST to eSewa gateway -->
+        <form id="esewaForm" action="https://uat.esewa.com.np/epay/main" method="POST">
+          <input type="hidden" name="tAmt" value="9999"/>
+          <input type="hidden" name="amt" value="9999"/>
+          <input type="hidden" name="txAmt" value="0"/>
+          <input type="hidden" name="pAmt" value="0"/>
+          <input type="hidden" name="sAmt" value="0"/>
+          <!-- Replace with your eSewa Merchant Code -->
+          <input type="hidden" name="scd" value="EPAYTEST"/>
+          <input type="hidden" name="pid" value="CTS-PRO-001"/>
+          <input type="hidden" name="su" value="http://localhost/payment-success.html"/>
+          <input type="hidden" name="fu" value="http://localhost/payment-failed.html"/>
+        </form>
+        <button class="btn-pay green" onclick="payWithEsewa()">
+          <span>Pay Rs. 9,999 with eSewa</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- Khalti Form -->
+      <div class="payment-form-section" id="form-khalti">
+        <div class="pay-note">⚠️ Khalti integration: <code>YOUR_KHALTI_PUBLIC_KEY</code> lai tapaiko Khalti Dashboard bata public key le replace garnuhos.</div>
+        <button class="btn-pay purple" onclick="payWithKhalti()">
+          <span>Pay Rs. 9,999 with Khalti</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- Connect IPS Form -->
+      <div class="payment-form-section" id="form-cips">
+        <div class="pay-note">⚠️ Connect IPS integration: NCHL merchant credentials ra HMAC signature server-side generate garnuparccha. <a href="https://connectips.com" target="_blank" style="color:var(--accent2)">connectips.com</a> maa merchant account khol्nuhola.</div>
+        <div class="form-group" style="margin-bottom:16px;">
+          <label class="form-label">Your Bank</label>
+          <select class="form-input" style="color:var(--text);">
+            <option value="">Select your bank</option>
+            <option>Nabil Bank</option>
+            <option>Nepal Investment Bank</option>
+            <option>Rastriya Banijya Bank</option>
+            <option>Everest Bank</option>
+            <option>Himalayan Bank</option>
+            <option>Siddhartha Bank</option>
+            <option>Global IME Bank</option>
+            <option>Sanima Bank</option>
+            <option>NIC Asia Bank</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <button class="btn-pay blue" onclick="payWithCIPS()">
+          <span>Pay Rs. 9,999 via Connect IPS</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: Order Summary -->
+    <div class="order-summary">
+      <h3>Order Summary</h3>
+      <div class="order-item">
+        <div>
+          <div class="order-item-name" style="font-weight:700;color:var(--text);font-size:14px;">Pro Bundle</div>
+          <div class="order-item-name">All 6 Modules + Bonus</div>
+        </div>
+        <div class="order-item-price">Rs. 11,999</div>
+      </div>
+      <div class="order-item">
+        <div class="order-item-name">Discount (17% off)</div>
+        <div class="order-item-price" style="color:var(--green);">- Rs. 2,000</div>
+      </div>
+      <div class="order-item">
+        <div class="order-item-name">Certificate</div>
+        <div class="order-item-price" style="color:var(--green);">Free</div>
+      </div>
+      <div class="order-total">
+        <span>Total</span>
+        <span class="total-price">Rs. 9,999</span>
+      </div>
+
+      <div style="margin-top:20px;font-size:12px;color:var(--text3);font-family:var(--font-ui);">
+        <div style="margin-bottom:8px;">✓ Lifetime access to all videos</div>
+        <div style="margin-bottom:8px;">✓ New videos automatically added</div>
+        <div style="margin-bottom:8px;">✓ Certificate upon completion</div>
+        <div>✓ Mobile + Desktop access</div>
+      </div>
+
+      <div class="secure-badge">
+        🔒 <span>256-bit SSL encrypted secure payment</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/auth.js"></script>
+<script src="js/payment.js"></script>
+</body>
+</html>

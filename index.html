@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Creative Tech Studio — Video Editing Master Course</title>
+  <meta name="description" content="Learn Photoshop, Illustrator, After Effects, Premiere Pro, DaVinci Resolve & Media Encoder from scratch to pro level."/>
+  <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<div class="noise"></div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<!-- ── NAVBAR ── -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">▶</div>
+      <span class="logo-text">Creative<em>Tech</em>Studio</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#modules">Modules</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="register.html" class="nav-cta">Enroll Now</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#modules" class="mobile-link">Modules</a></li>
+    <li><a href="#pricing" class="mobile-link">Pricing</a></li>
+    <li><a href="#schedule" class="mobile-link">Schedule</a></li>
+    <li><a href="login.html" class="mobile-link">Login</a></li>
+    <li><a href="register.html" class="mobile-link">Enroll Now</a></li>
+  </ul>
+</div>
+
+<!-- ══════════════════════
+     HERO
+══════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grid-lines"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge reveal">
+      <span class="badge-dot"></span>
+      SCRATCH → PRO LEVEL COURSE
+    </div>
+    <h1 class="hero-title reveal">
+      <span class="title-line">CREATIVE</span>
+      <span class="title-line accent-line">TECH</span>
+      <span class="title-line">STUDIO</span>
+    </h1>
+    <p class="hero-desc reveal">
+      Master 6 professional creative tools with 100+ step-by-step videos.<br/>
+      Photoshop · Illustrator · After Effects · Premiere Pro · DaVinci · Media Encoder
+    </p>
+    <div class="hero-btns reveal">
+      <a href="register.html" class="btn-primary">
+        <span>Start Learning</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#modules" class="btn-ghost">View Curriculum</a>
+    </div>
+    <div class="hero-stats reveal">
+      <div class="stat">
+        <span class="stat-num" data-target="100">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">Videos</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num" data-target="6">0</span>
+        <span class="stat-label">Software</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num" data-target="3">0</span><span class="stat-suffix">-4 Mo</span>
+        <span class="stat-label">Duration</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num" data-target="3">0</span>
+        <span class="stat-label">Levels</span>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator"><span>SCROLL</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- ══════════════════════
+     MODULES
+══════════════════════ -->
+<section id="modules" class="modules-section">
+  <div class="section-header reveal" style="max-width:1280px;margin-left:auto;margin-right:auto;">
+    <span class="section-tag">CURRICULUM</span>
+    <h2 class="section-title">6 Power<br/><em>Modules</em></h2>
+  </div>
+  <div class="modules-grid">
+
+    <!-- PS -->
+    <div class="module-card reveal" style="--card-color:#31A8FF">
+      <div class="card-glow" style="--glow:#31A8FF"></div>
+      <div class="card-header">
+        <div class="card-badge" style="background:#31A8FF">PS</div>
+        <span class="card-num">01</span>
+      </div>
+      <h3 class="card-title">Adobe<br/>Photoshop</h3>
+      <p class="card-sub">Digital Art &amp; Photo Mastery</p>
+      <div class="card-levels">
+        <div class="level-row"><span class="level-tag beginner">Beginner</span><span class="level-topics">7 Topics</span></div>
+        <div class="level-row"><span class="level-tag intermediate">Intermediate</span><span class="level-topics">6 Topics</span></div>
+        <div class="level-row"><span class="level-tag pro">Pro</span><span class="level-topics">7 Topics</span></div>
+      </div>
+      <div class="card-topics">
+        <div class="topic-list" id="topics-ps">
+          <div class="topic-group"><p class="tg-label">🟢 Beginner</p><ul>
+            <li>Interface — Workspace, Panels, Tools</li>
+            <li>Selection Tools — Marquee, Lasso, Magic Wand</li>
+            <li>Layers — Types, Opacity, Blending Modes</li>
+            <li>Basic Retouching — Healing Brush, Clone Stamp</li>
+            <li>Color Correction — Curves, Levels, Hue/Sat</li>
+            <li>Text &amp; Typography Basics</li>
+            <li>Export — JPEG, PNG, PSD differences</li>
+          </ul></div>
+          <div class="topic-group"><p class="tg-label">🟡 Intermediate</p><ul>
+            <li>Masking — Layer, Clipping, Vector Mask</li>
+            <li>Smart Objects — Non-Destructive Editing</li>
+            <li>Background Removal — Pen Tool Method</li>
+            <li>Photo Compositing — 2 Photos jodne</li>
+            <li>Actions &amp; Batch Processing</li>
+            <li>Frequency Separation — Skin Retouching</li>
+          </ul></div>
+          <div class="topic-group"><p class="tg-label">🔴 Pro</p><ul>
+            <li>Dodge &amp; Burn — Advanced Skin Work</li>
+            <li>Color Grading — Cinematic Look</li>
+            <li>Double Exposure Effect</li>
+            <li>Social Media Graphics — Thumbnail, Poster</li>
+            <li>Custom Brushes banaune</li>
+            <li>3D Text Effect</li>
+            <li>⭐ Final Project — Brand Poster Workflow</li>
+          </ul></div>
+        </div>
+      </div>
+      <button class="card-toggle" data-target="topics-ps"><span>View Topics</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+
+    <!-- AI -->
+    <div class="module-card reveal" style="--card-color:#FF9A00">
+      <div class="card-glow" style="--glow:#FF9A00"></div>
+      <div class="card-header">
+        <div class="card-badge" style="background:#FF9A00">AI</div>
+        <span class="card-num">02</span>
+      </div>
+      <h3 class="card-title">Adobe<br/>Illustrator</h3>
+      <p class="card-sub">Vector Design &amp; Branding</p>
+      <div class="card-levels">
+        <div class="level-row"><span class="level-tag beginner">Beginner</span><span class="level-topics">6 Topics</span></div>
+        <div class="level-row"><span class="level-tag intermediate">Intermediate</span><span class="level-topics">6 Topics</span></div>
+        <div class="level-row"><span class="level-tag pro">Pro</span><span class="level-topics">5 Topics</span></div>
+      </div>
+      <div class="card-topics">
+        <div class="topic-list" id="topics-ai">
+          <div class="topic-group"><p class="tg-label">🟢 Beginner</p><ul>
+            <li>Raster vs Vector — Photoshop bhandaa farak</li>
+            <li>Artboard, Tools, Workspace</li>
+            <li>Pen Tool — Illustrator ko Heart</li>
+            <li>Shapes &amp; Pathfinder</li>
+            <li>Typography — Type, Area Type, Path Type</li>
+            <li>Color — Swatches, Gradients, Color Guides</li>
+          </ul></div>
+          <div class="topic-group"><p class="tg-label">🟡 Intermediate</p><ul>
+            <li>Logo Design Process — Sketch to Vector</li>
+            <li>Clipping Masks &amp; Compound Paths</li>
+            <li>Pattern Making — Seamless Repeat</li>
+            <li>Infographic banaune</li>
+            <li>Icon Design — Flat Style</li>
+            <li>Business Card Layout</li>
+          </ul></div>
+          <div class="topic-group"><p class="tg-label">🔴 Pro</p><ul>
+            <li>Brand Identity System — Logo + Color + Font</li>
+            <li>Isometric Illustration</li>
+            <li>Character Design Basics</li>
+            <li>Mockup banaune</li>
+            <li>⭐ Final Project — Complete Brand Kit</li>
+          </ul></div>
+        </div>
+      </div>
+      <button class="card-toggle" data-target="topics-ai"><span>View Topics</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+
+    <!-- AE -->
+    <div class="module-card reveal" style="--card-color:#9999FF">
+      <div class="card-glow" style="--glow:#9999FF"></div>
+      <div class="card-header">
+        <div class="card-badge" style="background:#9999FF;color:#000">AE</div>
+        <span class="card-num">03</span>
+      </div>
+      <h3 class="card-title">Adobe After<br/>Effects</h3>
+      <p class="card-sub">Motion Graphics &amp; VFX</p>
+      <div class="card-levels">
+        <div class="level-row"><span class="level-tag beginner">Beginner</span><span class="level-topics">6 Topics</span></div>
+        <div class="level-row"><span class="level-tag intermediate">Intermediate</span><span class="level-topics">6 Topics</span></div>
+        <div class="level-row"><span class="level-tag pro">Pro</span><span class="level-topics">7 Topics</span></div>
+      </div>
+      <div class="card-topics">
+        <div class="topic-list" id="topics-ae">
+          <div class="topic-group"><p class="tg-label">🟢 Beginner</p><ul>
+            <li>AE Interface — Timeline, Composition, Layers</li>
+            <li>Keyframes — Position, Scale, Rotation, Opacity</li>
+            <li>Easing — Easy Ease, Graph Editor</li>
+            <li>Text Animation — Basic Presets</li>
+            <li>Shape Layers — Trim Path Animation</li>
+            <li>Null Objects &amp; Parenting</li>
+          </ul></div>
+          <div class="topic-group"><p class="tg-label">🟡 Intermediate</p><ul>
+            <li>Masks &amp; Track Mattes</li>
+            <li>Motion Blur &amp; Depth of Field</li>
+            <li>Pre-Composing — Complex Project Organize</li>
+            <li>Expressions — wiggle(), loopOut()</li>
+            <li>Green Screen — Keylight Plugin</li>
+            <li>Camera &amp; 3D Layers</li>
+          </ul></div>
+          <div class="topic-group"><p class="tg-label">🔴 Pro</p><ul>
+            <li>Motion Tracking — Point &amp; Camera Track</li>
+            <li>Advanced Expressions — time, index</li>
+            <li>Particle Effects — CC Particle World</li>
+            <li>Cinematic Title Sequence</li>
+            <li>Logo Reveal Animation</li>
+            <li>Lower Thirds &amp; Motion Graphics Template</li>
+            <li>⭐ Final Project — Full Brand Intro Video</li>
+          </ul></div>
+        </div>
+      </div>
+      <button class="card-toggle" data-target="topics-ae"><span>View Topics</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+
+    <!-- PR -->
+    <div class="module-card reveal" style="--card-color:#E040FB">
+      <div class="card-glow" style="--glow:#E040FB"></div>
+      <div class="card-header">
+        <div class="card-badge" style="background:#E040FB">PR</div>
+        <span class="card-num">04</span>
+      </div>
+      <h3 class="card-title">Adobe Premiere<br/>Pro</h3>
+      <p class="card-sub">Professional Video Editing</p>
+      <div class="card-levels">
+        <div class="level-row"><span class="level-tag beginner">Beginner</span><span class="level-topics">6 Topics</span></div>
+        <div class="level-row"><span class="level-tag intermediate">Intermediate</span><span class="level-topics">7 Topics</span></div>
+        <div class="level-row"><span class="level-tag pro">Pro</span><span class="level-topics">6 Topics</span></div>
+      </div>
+      <div class="card-topics">
+        <div class="topic-list" id="topics-pr">
+          <div class="topic-group"><p class="tg-label">🟢 Beginner</p><ul>
+            <li>Premiere Workflow — Import, Edit, Export</li>
+            <li>Sequence Settings — 1080p, 4K, Reels</li>
+            <li>Basic Cuts — Razor, Ripple Delete, J/L Cut</li>
+            <li>Audio Basics — Volume, Fade, Sync</li>
+            <li>Transitions — Cut vs Dissolve</li>
+            <li>Color — Lumetri Basics</li>
+          </ul></div>
+          <div class="topic-group"><p class="tg-label">🟡 Intermediate</p><ul>
+            <li>Multicam Editing</li>
+            <li>Color Grading — Lumetri Full Control</li>
+            <li>LUT Apply — Cinematic Look</li>
+            <li>Audio Mixing — EQ, Compressor, DeNoise</li>
+            <li>Speed Ramp — Smooth Slow Motion</li>
+            <li>Dynamic Link — AE + Premiere</li>
+            <li>Captions &amp; Subtitles — Auto Transcribe</li>
+          </ul></div>
+          <div class="topic-group"><p class="tg-label">🔴 Pro</p><ul>
+            <li>Advanced Timeline Management</li>
+            <li>Proxy Workflow — 4K Smooth Editing</li>
+            <li>Essential Graphics — MoGRT Template</li>
+            <li>Premiere + After Effects Integration</li>
+            <li>Reels / Shorts Optimized Workflow</li>
+            <li>⭐ Final Project — Food Reel Edit</li>
+          </ul></div>
+        </div>
+      </div>
+      <button class="card-toggle" data-target="topics-pr"><span>View Topics</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+
+    <!-- DV -->
+    <div class="module-card reveal" style="--card-color:#FF4444">
+      <div class="card-glow" style="--glow:#FF4444"></div>
+      <div class="card-header">
+        <div class="card-badge" style="background:#FF4444">DV</div>
+        <span class="card-num">05</span>
+      </div>
+      <h3 class="card-title">DaVinci<br/>Resolve</h3>
+      <p class="card-sub">Hollywood-Level Color Grading</p>
+      <div class="card-levels">
+        <div class="level-row"><span class="level-tag beginner">Beginner</span><span class="level-topics">5 Topics</span></div>
+        <div class="level-row"><span class="level-tag intermediate">Intermediate</span><span class="level-topics">6 Topics</span></div>
+        <div class="level-row"><span class="level-tag pro">Pro</span><span class="level-topics">6 Topics</span></div>
+      </div>
+      <div class="card-topics">
+        <div class="topic-list" id="topics-dv">
+          <div class="topic-group"><p class="tg-label">🟢 Beginner</p><ul>
+            <li>DaVinci vs Premiere — kun ramro?</li>
+            <li>Page System — Cut, Edit, Fusion, Color, Deliver</li>
+            <li>Media Import ra Project Setup</li>
+            <li>Cut Page — Fast Editing Workflow</li>
+            <li>Edit Page — Premiere jastai Edit</li>
+          </ul></div>
+          <div class="topic-group"><p class="tg-label">🟡 Intermediate</p><ul>
+            <li>Color Page — Node System (Yahi nai Magic ho)</li>
+            <li>Primary Wheels — Lift, Gamma, Gain</li>
+            <li>Curves — Custom Color Shape</li>
+            <li>Qualifier — Specific Color matra chune</li>
+            <li>Power Windows — Masking in Color Page</li>
+            <li>LUT banaune — aafnai</li>
+          </ul></div>
+          <div class="topic-group"><p class="tg-label">🔴 Pro</p><ul>
+            <li>HDR Grading Workflow</li>
+            <li>Fusion — Node-Based VFX</li>
+            <li>Noise Reduction — Magic Mask</li>
+            <li>Remote Grades — Multiple Clips</li>
+            <li>Fairlight — Professional Audio Mixing</li>
+            <li>⭐ Final Project — Cinematic Food Video</li>
+          </ul></div>
+        </div>
+      </div>
+      <button class="card-toggle" data-target="topics-dv"><span>View Topics</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+
+    <!-- ME -->
+    <div class="module-card reveal" style="--card-color:#00C4B4">
+      <div class="card-glow" style="--glow:#00C4B4"></div>
+      <div class="card-header">
+        <div class="card-badge" style="background:#00C4B4;color:#000">ME</div>
+        <span class="card-num">06</span>
+      </div>
+      <h3 class="card-title">Media<br/>Encoder</h3>
+      <p class="card-sub">Export Master</p>
+      <div class="card-levels">
+        <div class="level-row"><span class="level-tag beginner">Full</span><span class="level-topics">7 Topics</span></div>
+      </div>
+      <div class="card-topics">
+        <div class="topic-list" id="topics-me">
+          <div class="topic-group"><p class="tg-label">📦 All Levels</p><ul>
+            <li>Media Encoder kina chahinccha?</li>
+            <li>Queue System — Background Export</li>
+            <li>Presets — YouTube, Instagram, Facebook, Reels</li>
+            <li>Custom Preset banaune ra Save</li>
+            <li>Batch Export — Ekai choti dherei Video</li>
+            <li>Watch Folders — Auto Export Workflow</li>
+            <li>Format Guide — H.264 vs H.265 vs ProRes</li>
+          </ul></div>
+        </div>
+      </div>
+      <button class="card-toggle" data-target="topics-me"><span>View Topics</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════
+     BONUS
+══════════════════════ -->
+<section id="bonus" class="bonus-section">
+  <div class="section-header reveal" style="max-width:1280px;margin:0 auto 48px;">
+    <span class="section-tag">EXTRAS</span>
+    <h2 class="section-title">Bonus<br/><em>Modules</em></h2>
+  </div>
+  <div class="bonus-grid" style="max-width:1280px;margin:0 auto;">
+    <div class="bonus-card reveal"><div class="bonus-icon">💰</div><div><h4>Freelancing</h4><p>Fiverr/Upwork profile setup, client kasari paune, rate fix garne guide.</p></div></div>
+    <div class="bonus-card reveal reveal-delay-1"><div class="bonus-icon">📱</div><div><h4>Social Media Workflow</h4><p>Reels optimized pipeline — Script to Upload complete system.</p></div></div>
+    <div class="bonus-card reveal reveal-delay-2"><div class="bonus-icon">🤖</div><div><h4>AI Tools Integration</h4><p>Adobe Firefly, Auto Color, AI-powered editing tricks.</p></div></div>
+    <div class="bonus-card reveal reveal-delay-3"><div class="bonus-icon">📁</div><div><h4>Project Organization</h4><p>Pro-level folder structure ra file naming system.</p></div></div>
+    <div class="bonus-card reveal reveal-delay-4"><div class="bonus-icon">🎨</div><div><h4>Color Theory</h4><p>Sabai software maa kaam laagne foundational design knowledge.</p></div></div>
+  </div>
+</section>
+
+<!-- ══════════════════════
+     PRICING
+══════════════════════ -->
+<section id="pricing" class="pricing-section">
+  <div class="section-header reveal" style="max-width:1280px;margin:0 auto 48px;">
+    <span class="section-tag">PRICING</span>
+    <h2 class="section-title">Simple<br/><em>Pricing</em></h2>
+  </div>
+  <div class="pricing-grid">
+    <div class="price-card reveal">
+      <p class="price-name">Starter</p>
+      <div><span class="price-currency">Rs.</span><span class="price-amount">2,999</span></div>
+      <p class="price-period">one module access</p>
+      <div class="price-features">
+        <div class="price-feat"><span class="check">✓</span> 1 Software Module</div>
+        <div class="price-feat"><span class="check">✓</span> HD Video Quality</div>
+        <div class="price-feat"><span class="check">✓</span> 3 Months Access</div>
+        <div class="price-feat"><span class="cross">✗</span> Bonus Modules</div>
+        <div class="price-feat"><span class="cross">✗</span> Certificate</div>
+      </div>
+      <a href="register.html" class="btn-ghost" style="display:block;text-align:center;">Get Started</a>
+    </div>
+    <div class="price-card featured reveal reveal-delay-1">
+      <div class="price-popular">MOST POPULAR</div>
+      <p class="price-name">Pro Bundle</p>
+      <div><span class="price-currency">Rs.</span><span class="price-amount">9,999</span></div>
+      <p class="price-period">all 6 modules access</p>
+      <div class="price-features">
+        <div class="price-feat"><span class="check">✓</span> All 6 Software Modules</div>
+        <div class="price-feat"><span class="check">✓</span> HD Video Quality</div>
+        <div class="price-feat"><span class="check">✓</span> Lifetime Access</div>
+        <div class="price-feat"><span class="check">✓</span> All Bonus Modules</div>
+        <div class="price-feat"><span class="check">✓</span> Completion Certificate</div>
+      </div>
+      <a href="register.html" class="btn-primary" style="display:flex;justify-content:center;">Enroll Now</a>
+    </div>
+    <div class="price-card reveal reveal-delay-2">
+      <p class="price-name">Team</p>
+      <div><span class="price-currency">Rs.</span><span class="price-amount">24,999</span></div>
+      <p class="price-period">up to 5 members</p>
+      <div class="price-features">
+        <div class="price-feat"><span class="check">✓</span> All 6 Software Modules</div>
+        <div class="price-feat"><span class="check">✓</span> 5 Team Accounts</div>
+        <div class="price-feat"><span class="check">✓</span> Lifetime Access</div>
+        <div class="price-feat"><span class="check">✓</span> Priority Support</div>
+        <div class="price-feat"><span class="check">✓</span> Team Certificates</div>
+      </div>
+      <a href="register.html" class="btn-ghost" style="display:block;text-align:center;">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════
+     PAYMENT METHODS
+══════════════════════ -->
+<section class="payment-section">
+  <div class="section-header reveal" style="max-width:1280px;margin:0 auto 40px;text-align:center;">
+    <span class="section-tag">SECURE PAYMENT</span>
+    <h2 class="section-title" style="text-align:center;">We Accept</h2>
+  </div>
+  <div class="payment-logos">
+    <div class="pay-logo reveal">
+      <div class="pay-logo-icon esewa-icon">e</div>
+      <span class="pay-logo-name esewa-name">eSewa</span>
+    </div>
+    <div class="pay-logo reveal reveal-delay-1">
+      <div class="pay-logo-icon khalti-icon">K</div>
+      <span class="pay-logo-name khalti-name">Khalti</span>
+    </div>
+    <div class="pay-logo reveal reveal-delay-2">
+      <div class="pay-logo-icon cips-icon">C</div>
+      <span class="pay-logo-name cips-name">Connect IPS</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════
+     SCHEDULE
+══════════════════════ -->
+<section id="schedule" class="schedule-section">
+  <div class="section-header reveal" style="max-width:900px;margin:0 auto 48px;">
+    <span class="section-tag">TIMELINE</span>
+    <h2 class="section-title">12-Week<br/><em>Schedule</em></h2>
+  </div>
+  <div class="schedule-grid">
+    <div class="schedule-item reveal"><div class="sched-week">Week 1–2</div><div class="sched-dot"></div><div class="sched-content"><h4>Photoshop Beginner</h4><p>Interface, selections, layers, basic retouching, color correction</p></div></div>
+    <div class="schedule-item reveal"><div class="sched-week">Week 3–4</div><div class="sched-dot"></div><div class="sched-content"><h4>Photoshop Intermediate + Pro</h4><p>Masking, smart objects, compositing, color grading, final project</p></div></div>
+    <div class="schedule-item reveal"><div class="sched-week">Week 5</div><div class="sched-dot"></div><div class="sched-content"><h4>Illustrator Full Module</h4><p>Pen tool, logo design, branding, brand kit final project</p></div></div>
+    <div class="schedule-item reveal"><div class="sched-week">Week 6–7</div><div class="sched-dot"></div><div class="sched-content"><h4>Premiere Beginner + Intermediate</h4><p>Editing workflow, cuts, color grading, audio mixing, speed ramp</p></div></div>
+    <div class="schedule-item reveal"><div class="sched-week">Week 8</div><div class="sched-dot"></div><div class="sched-content"><h4>After Effects Beginner</h4><p>AE interface, keyframes, easing, text animation, shape layers</p></div></div>
+    <div class="schedule-item reveal"><div class="sched-week">Week 9</div><div class="sched-dot"></div><div class="sched-content"><h4>After Effects Intermediate + Pro</h4><p>Expressions, motion tracking, particles, brand intro final project</p></div></div>
+    <div class="schedule-item reveal"><div class="sched-week">Week 10</div><div class="sched-dot"></div><div class="sched-content"><h4>DaVinci Resolve Full Module</h4><p>Node-based color grading, Fusion VFX, Fairlight audio</p></div></div>
+    <div class="schedule-item reveal"><div class="sched-week">Week 11</div><div class="sched-dot"></div><div class="sched-content"><h4>Media Encoder + Bonus</h4><p>Export mastery, presets, batch workflow, freelancing guide</p></div></div>
+    <div class="schedule-item reveal"><div class="sched-week">Week 12</div><div class="sched-dot"></div><div class="sched-content"><h4>Final Projects + Portfolio</h4><p>All 6 final projects, portfolio build, certificate</p></div></div>
+  </div>
+</section>
+
+<!-- ══════════════════════
+     ENROLL CTA
+══════════════════════ -->
+<section id="enroll" class="enroll-section">
+  <div class="enroll-inner">
+    <span class="section-tag">GET STARTED</span>
+    <h2 class="section-title reveal">Ready to Become<br/><em>Pro?</em></h2>
+    <p class="reveal">Join Creative Tech Studio and master professional video editing in just 3 months.</p>
+    <div class="enroll-btns reveal">
+      <a href="register.html" class="btn-primary">
+        <span>Enroll Now</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="login.html" class="btn-ghost">Already Enrolled? Login</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:12px;">
+          <div class="logo-icon">▶</div>
+          <span class="logo-text">Creative<em>Tech</em>Studio</span>
+        </div>
+        <p>Nepal ko sabai bhandaa ramro video editing ra design course. Scratch bata pro level samma.</p>
+      </div>
+      <div class="footer-links">
+        <h5>Course</h5>
+        <ul>
+          <li><a href="#modules">Modules</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#bonus">Bonus</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h5>Account</h5>
+        <ul>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="register.html">Register</a></li>
+          <li><a href="forgot-password.html">Forgot Password</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Creative Tech Studio. All rights reserved.</p>
+      <p>Made with ❤️ in Nepal</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

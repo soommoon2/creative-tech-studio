@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login — Creative Tech Studio</title>
+  <link rel="stylesheet" href="css/main.css"/>
+  <link rel="stylesheet" href="css/auth.css"/>
+</head>
+<body>
+<div class="noise"></div>
+<div class="toast-container" id="toastContainer"></div>
+
+<div class="auth-page">
+  <!-- ── LEFT PANEL ── -->
+  <div class="auth-left">
+    <div class="auth-left-bg"></div>
+    <div class="auth-left-grid"></div>
+    <div class="auth-left-content">
+      <div class="auth-left-brand">
+        <a href="index.html" class="nav-logo">
+          <div class="logo-icon">▶</div>
+          <span class="logo-text">Creative<em>Tech</em>Studio</span>
+        </a>
+      </div>
+      <div class="auth-tagline">
+        <span class="orange">LEARN.</span><br/>
+        <span class="outline">CREATE.</span><br/>
+        <span class="orange">MASTER.</span>
+      </div>
+      <p class="auth-desc">Nepal ko sabai bhandaa comprehensive video editing course. 6 software, 100+ videos, scratch bata pro level.</p>
+    </div>
+    <div class="auth-features">
+      <div class="auth-feature-item"><div class="auth-feature-icon">🎬</div><span><strong>100+ HD Videos</strong> — Clear step-by-step tutorials</span></div>
+      <div class="auth-feature-item"><div class="auth-feature-icon">🔒</div><span><strong>Protected Content</strong> — Videos cannot be downloaded</span></div>
+      <div class="auth-feature-item"><div class="auth-feature-icon">📱</div><span><strong>Watch Anywhere</strong> — Desktop, tablet, mobile</span></div>
+      <div class="auth-feature-item"><div class="auth-feature-icon">🏆</div><span><strong>Certificate</strong> — Upon course completion</span></div>
+    </div>
+  </div>
+
+  <!-- ── RIGHT PANEL ── -->
+  <div class="auth-right">
+    <div class="auth-box">
+      <!-- Mobile Logo -->
+      <a href="index.html" class="auth-mobile-logo">
+        <div class="logo-icon">▶</div>
+        <span class="logo-text">Creative<em>Tech</em>Studio</span>
+      </a>
+
+      <!-- Tabs -->
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="loginTab" onclick="switchTab('login')">Login</button>
+        <button class="auth-tab" id="registerTab" onclick="switchTab('register')">Register</button>
+      </div>
+
+      <!-- ── LOGIN FORM ── -->
+      <div id="loginForm">
+        <h2 class="auth-form-title">WELCOME BACK</h2>
+        <p class="auth-form-sub">आफ्नो account मा login गर्नुहोस्</p>
+
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" id="loginEmail" placeholder="your@email.com" autocomplete="email"/>
+          <p class="form-error" id="loginEmailError">Valid email address haalnuhos</p>
+        </div>
+
+        <div class="form-group form-input-icon">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-input" id="loginPassword" placeholder="••••••••" autocomplete="current-password"/>
+          <span class="input-icon" onclick="togglePassword('loginPassword', this)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </span>
+          <p class="form-error" id="loginPasswordError">Password haalnuhos</p>
+        </div>
+
+        <div class="form-forgot">
+          <a href="forgot-password.html">Password birsinu bhayo?</a>
+        </div>
+
+        <button class="btn-auth" id="loginBtn" onclick="handleLogin()">
+          <span class="btn-text">LOGIN</span>
+          <div class="btn-spinner"></div>
+        </button>
+
+        <p style="text-align:center;font-size:12px;color:var(--text3);margin-top:20px;font-family:var(--font-ui);">
+          Account chaina? <a href="#" style="color:var(--accent);font-weight:700;" onclick="switchTab('register')">Register garnuhos</a>
+        </p>
+      </div>
+
+      <!-- ── REGISTER FORM ── -->
+      <div id="registerForm" style="display:none;">
+        <h2 class="auth-form-title">JOIN NOW</h2>
+        <p class="auth-form-sub">Naaya account banaunu hola</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-input" id="regFirstName" placeholder="Aarav" autocomplete="given-name"/>
+            <p class="form-error" id="regFirstNameError">First name haalnuhos</p>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-input" id="regLastName" placeholder="Sharma" autocomplete="family-name"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" id="regEmail" placeholder="your@email.com" autocomplete="email"/>
+          <p class="form-error" id="regEmailError">Valid email haalnuhos</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <input type="tel" class="form-input" id="regPhone" placeholder="98XXXXXXXX" autocomplete="tel"/>
+        </div>
+
+        <div class="form-group form-input-icon">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-input" id="regPassword" placeholder="Minimum 8 characters" oninput="checkPasswordStrength(this.value)" autocomplete="new-password"/>
+          <span class="input-icon" onclick="togglePassword('regPassword', this)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </span>
+          <div class="pw-strength">
+            <div class="pw-strength-bar"><div class="pw-strength-fill" id="pwStrengthFill"></div></div>
+            <p class="pw-strength-text" id="pwStrengthText"></p>
+          </div>
+          <p class="form-error" id="regPasswordError">Password minimum 8 characters hunuparccha</p>
+        </div>
+
+        <div class="form-group form-input-icon">
+          <label class="form-label">Confirm Password</label>
+          <input type="password" class="form-input" id="regConfirmPassword" placeholder="Re-enter password" autocomplete="new-password"/>
+          <span class="input-icon" onclick="togglePassword('regConfirmPassword', this)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </span>
+          <p class="form-error" id="regConfirmError">Passwords match bhayena</p>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" id="regTerms"/>
+          <label for="regTerms">Ma <a href="#">Terms &amp; Conditions</a> ra <a href="#">Privacy Policy</a> sanga sahmat chu</label>
+        </div>
+        <p class="form-error" id="regTermsError">Terms accept garnuhos</p>
+
+        <button class="btn-auth" id="registerBtn" onclick="handleRegister()">
+          <span class="btn-text">CREATE ACCOUNT</span>
+          <div class="btn-spinner"></div>
+        </button>
+
+        <p style="text-align:center;font-size:12px;color:var(--text3);margin-top:20px;font-family:var(--font-ui);">
+          Account cha? <a href="#" style="color:var(--accent);font-weight:700;" onclick="switchTab('login')">Login garnuhos</a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="js/auth.js"></script>
+<script>
+  // Check tab from URL param
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('tab') === 'register') switchTab('register');
+</script>
+</body>
+</html>

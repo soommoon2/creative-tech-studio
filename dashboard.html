@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard — Creative Tech Studio</title>
+  <link rel="stylesheet" href="css/main.css"/>
+  <link rel="stylesheet" href="css/player.css"/>
+</head>
+<body>
+<div class="noise"></div>
+<div class="toast-container" id="toastContainer"></div>
+
+<nav id="navbar" class="scrolled">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">▶</div>
+      <span class="logo-text">Creative<em>Tech</em>Studio</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="dashboard.html" style="color:var(--accent)">Dashboard</a></li>
+      <li><a href="#" onclick="logout()">Logout</a></li>
+    </ul>
+    <button class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="dashboard-layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner">
+      <div class="sidebar-user">
+        <div class="sidebar-user-avatar" id="userAvatar">S</div>
+        <div class="sidebar-user-name" id="userName">Student</div>
+        <div class="sidebar-user-role">Pro Bundle Member</div>
+      </div>
+      <p class="sidebar-nav-label">Menu</p>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="active">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          My Courses
+        </a>
+        <a href="#">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Progress
+        </a>
+        <a href="#">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Profile
+        </a>
+        <a href="#">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+          Certificate
+        </a>
+        <a href="#" onclick="logout()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Logout
+        </a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="dashboard-main">
+    <div class="dashboard-topbar">
+      <div>
+        <h1 class="dashboard-title" id="welcomeTitle">WELCOME BACK</h1>
+        <p style="color:var(--text3);font-size:13px;font-family:var(--font-ui);">Continue learning from where you left off</p>
+      </div>
+    </div>
+
+    <!-- Stats Row -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-bottom:36px;">
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px;">
+        <p style="font-family:var(--font-head);font-size:36px;color:var(--accent);">2</p>
+        <p style="font-size:12px;color:var(--text3);font-family:var(--font-ui);margin-top:2px;">Courses In Progress</p>
+      </div>
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px;">
+        <p style="font-family:var(--font-head);font-size:36px;color:var(--green);">14</p>
+        <p style="font-size:12px;color:var(--text3);font-family:var(--font-ui);margin-top:2px;">Videos Completed</p>
+      </div>
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px;">
+        <p style="font-family:var(--font-head);font-size:36px;color:var(--accent2);">6h</p>
+        <p style="font-size:12px;color:var(--text3);font-family:var(--font-ui);margin-top:2px;">Total Watch Time</p>
+      </div>
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px;">
+        <p style="font-family:var(--font-head);font-size:36px;color:var(--purple);">6</p>
+        <p style="font-size:12px;color:var(--text3);font-family:var(--font-ui);margin-top:2px;">Total Modules</p>
+      </div>
+    </div>
+
+    <h2 style="font-family:var(--font-ui);font-size:16px;font-weight:800;margin-bottom:20px;">Your Courses</h2>
+
+    <div class="courses-grid">
+      <!-- PS -->
+      <div class="course-card" onclick="goToPlayer('photoshop')">
+        <div class="course-card-thumb" style="--thumb-gradient:linear-gradient(135deg,rgba(49,168,255,0.3),rgba(0,0,0,0.7))">
+          <div class="course-thumb-icon" style="background:#31A8FF">PS</div>
+        </div>
+        <div class="course-card-body">
+          <p class="course-card-tag">Module 01</p>
+          <h3>Adobe Photoshop</h3>
+          <p>Digital Art & Photo Mastery — Beginner to Pro</p>
+          <div class="course-progress"><div class="course-progress-fill" style="width:35%"></div></div>
+          <div class="course-progress-label"><span>35% complete</span><span>7/20 videos</span></div>
+        </div>
+        <div class="course-card-footer">
+          <span class="course-video-count">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            20 videos
+          </span>
+          <span class="btn-watch">▶ Continue</span>
+        </div>
+      </div>
+
+      <!-- AI -->
+      <div class="course-card" onclick="goToPlayer('illustrator')">
+        <div class="course-card-thumb" style="--thumb-gradient:linear-gradient(135deg,rgba(255,154,0,0.3),rgba(0,0,0,0.7))">
+          <div class="course-thumb-icon" style="background:#FF9A00">AI</div>
+        </div>
+        <div class="course-card-body">
+          <p class="course-card-tag">Module 02</p>
+          <h3>Adobe Illustrator</h3>
+          <p>Vector Design & Branding — Logo to Brand Kit</p>
+          <div class="course-progress"><div class="course-progress-fill" style="width:10%"></div></div>
+          <div class="course-progress-label"><span>10% complete</span><span>2/17 videos</span></div>
+        </div>
+        <div class="course-card-footer">
+          <span class="course-video-count">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            17 videos
+          </span>
+          <span class="btn-watch">▶ Start</span>
+        </div>
+      </div>
+
+      <!-- AE - Locked -->
+      <div class="course-card" onclick="showLockedMsg()">
+        <div class="course-card-thumb" style="--thumb-gradient:linear-gradient(135deg,rgba(153,153,255,0.3),rgba(0,0,0,0.7))">
+          <div class="course-thumb-icon" style="background:#9999FF;color:#000">AE</div>
+          <div class="course-lock-badge">🔒 Locked</div>
+        </div>
+        <div class="course-card-body">
+          <p class="course-card-tag">Module 03</p>
+          <h3>Adobe After Effects</h3>
+          <p>Motion Graphics & VFX — Complete the PS module first</p>
+          <div class="course-progress"><div class="course-progress-fill" style="width:0%"></div></div>
+          <div class="course-progress-label"><span>Locked</span><span>0/19 videos</span></div>
+        </div>
+        <div class="course-card-footer">
+          <span class="course-video-count">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            19 videos
+          </span>
+          <span class="btn-watch" style="background:var(--bg3);color:var(--text3);">🔒 Locked</span>
+        </div>
+      </div>
+
+      <!-- PR - Locked -->
+      <div class="course-card" onclick="showLockedMsg()">
+        <div class="course-card-thumb" style="--thumb-gradient:linear-gradient(135deg,rgba(224,64,251,0.3),rgba(0,0,0,0.7))">
+          <div class="course-thumb-icon" style="background:#E040FB">PR</div>
+          <div class="course-lock-badge">🔒 Locked</div>
+        </div>
+        <div class="course-card-body">
+          <p class="course-card-tag">Module 04</p>
+          <h3>Adobe Premiere Pro</h3>
+          <p>Professional Video Editing — Full workflow</p>
+          <div class="course-progress"><div class="course-progress-fill" style="width:0%"></div></div>
+          <div class="course-progress-label"><span>Locked</span><span>0/19 videos</span></div>
+        </div>
+        <div class="course-card-footer">
+          <span class="course-video-count">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            19 videos
+          </span>
+          <span class="btn-watch" style="background:var(--bg3);color:var(--text3);">🔒 Locked</span>
+        </div>
+      </div>
+
+      <!-- DV - Locked -->
+      <div class="course-card" onclick="showLockedMsg()">
+        <div class="course-card-thumb" style="--thumb-gradient:linear-gradient(135deg,rgba(255,68,68,0.3),rgba(0,0,0,0.7))">
+          <div class="course-thumb-icon" style="background:#FF4444">DV</div>
+          <div class="course-lock-badge">🔒 Locked</div>
+        </div>
+        <div class="course-card-body">
+          <p class="course-card-tag">Module 05</p>
+          <h3>DaVinci Resolve</h3>
+          <p>Hollywood-Level Color Grading</p>
+          <div class="course-progress"><div class="course-progress-fill" style="width:0%"></div></div>
+          <div class="course-progress-label"><span>Locked</span><span>0/16 videos</span></div>
+        </div>
+        <div class="course-card-footer">
+          <span class="course-video-count">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            16 videos
+          </span>
+          <span class="btn-watch" style="background:var(--bg3);color:var(--text3);">🔒 Locked</span>
+        </div>
+      </div>
+
+      <!-- ME - Locked -->
+      <div class="course-card" onclick="showLockedMsg()">
+        <div class="course-card-thumb" style="--thumb-gradient:linear-gradient(135deg,rgba(0,196,180,0.3),rgba(0,0,0,0.7))">
+          <div class="course-thumb-icon" style="background:#00C4B4;color:#000">ME</div>
+          <div class="course-lock-badge">🔒 Locked</div>
+        </div>
+        <div class="course-card-body">
+          <p class="course-card-tag">Module 06</p>
+          <h3>Media Encoder</h3>
+          <p>Export Master — All formats & presets</p>
+          <div class="course-progress"><div class="course-progress-fill" style="width:0%"></div></div>
+          <div class="course-progress-label"><span>Locked</span><span>0/7 videos</span></div>
+        </div>
+        <div class="course-card-footer">
+          <span class="course-video-count">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            7 videos
+          </span>
+          <span class="btn-watch" style="background:var(--bg3);color:var(--text3);">🔒 Locked</span>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/auth.js"></script>
+<script>
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('open');
+  }
+  function goToPlayer(course) {
+    window.location.href = 'player.html?course=' + course;
+  }
+  function showLockedMsg() {
+    showToast('Yo module abhi locked cha. Pahilo module complete garnuhos!', 'error');
+  }
+  function logout() {
+    localStorage.removeItem('cts_currentUser');
+    showToast('Logout successful!', 'success');
+    setTimeout(() => window.location.href = 'login.html', 1000);
+  }
+  // Load user info
+  window.addEventListener('DOMContentLoaded', () => {
+    const user = JSON.parse(localStorage.getItem('cts_currentUser') || '{}');
+    if (!user.email) { window.location.href = 'login.html'; return; }
+    const name = (user.firstName || 'Student').toUpperCase();
+    document.getElementById('welcomeTitle').textContent = 'WELCOME, ' + name;
+    document.getElementById('userName').textContent = (user.firstName || '') + ' ' + (user.lastName || '');
+    document.getElementById('userAvatar').textContent = (user.firstName || 'S')[0].toUpperCase();
+  });
+</script>
+</body>
+</html>
